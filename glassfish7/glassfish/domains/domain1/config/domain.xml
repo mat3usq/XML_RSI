@@ -54,6 +54,7 @@
   </resources>
   <servers>
     <server config-ref="server-config" name="server">
+      <system-property name="glassfish.commandlogger.logmode" value="NO_COMMAND"/>
       <application-ref ref="__admingui" virtual-servers="__asadmin"/>
       <application-ref ref="info-events-service" virtual-servers="server"/>
       <resource-ref ref="jdbc/__TimerPool"/>
