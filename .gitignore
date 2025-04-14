@@ -33,6 +33,4 @@ build/
 ### VS Code ###
 .vscode/
 
-### Driving-School ###
-*.map
-Visualization_Of_Questions/
+glassfish7/
