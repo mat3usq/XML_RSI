@@ -1,0 +1,18 @@
+===== INBOUND MESSAGE =====
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.events.com/"><soapenv:Header/><soapenv:Body>
+      <ser:deleteEvent>
+         <arg0>2</arg0>
+      </ser:deleteEvent>
+   </soapenv:Body></soapenv:Envelope>
+
+===== OUTBOUND MESSAGE =====
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><S:Body><ns2:deleteEventResponse xmlns:ns2="http://service.events.com/"><return>true</return></ns2:deleteEventResponse></S:Body></S:Envelope>
+
+===== INBOUND MESSAGE =====
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.events.com/"><soapenv:Header/><soapenv:Body>
+      <ser:findAllEvents/>
+   </soapenv:Body></soapenv:Envelope>
+
+===== OUTBOUND MESSAGE =====
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><S:Body><ns2:findAllEventsResponse xmlns:ns2="http://service.events.com/"><return><id>1</id><name>Koncert Coldplay</name><type>CONCERT</type><dateTime>2024-06-20T20:00:00</dateTime><description>Koncert na Stadionie Narodowym w Warszawie</description></return><return><id>3</id><name>Wystawa sztuki</name><type>EXHIBITION</type><dateTime>2024-07-10T10:00:00</dateTime><description>Wystawa współczesnej sztuki polskiej</description></return><return><id>4</id><name>Spektakl teatralny</name><type>THEATER</type><dateTime>2024-06-05T19:00:00</dateTime><description>Hamlet w Teatrze Narodowym</description></return><return><id>5</id><name>Warsztaty programowania</name><type>WORKSHOP</type><dateTime>2024-05-25T09:00:00</dateTime><description>Warsztaty z Java i Spring Boot</description></return></ns2:findAllEventsResponse></S:Body></S:Envelope>
+
