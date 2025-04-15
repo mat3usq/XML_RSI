@@ -7051,3 +7051,249 @@ file:/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/domains/domain1/ge
 [2025-04-15T22:42:29.537255+02:00] [GF 7.0.22] [INFO] [NCLS-CORE-00013] [jakarta.enterprise.system.core] [tid: _ThreadID=176 _ThreadName=Thread-41] [levelValue: 800] [[
   Shutdown procedure finished]]
 
+[2025-04-16T00:56:17.778530+02:00] [] [INFO] [NCLS-GFLAUNCHER-00005] [jakarta.enterprise.launcher] [tid: _ThreadID=1 _ThreadName=main] [levelValue: 800] [[
+  JVM invocation command line:
+/Users/mateusz/Library/Java/JavaVirtualMachines/openjdk-21.0.2/Contents/Home/bin/java
+-cp
+/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/modules/glassfish.jar
+-DWALL_CLOCK_START=2025-04-15T22:56:17.519078Z
+-XX:+UnlockDiagnosticVMOptions
+-XX:NewRatio=2
+-Xmx512m
+--add-opens=java.base/java.io=ALL-UNNAMED
+--add-opens=java.base/java.lang=ALL-UNNAMED
+--add-opens=java.base/java.util=ALL-UNNAMED
+--add-opens=java.base/sun.nio.fs=ALL-UNNAMED
+--add-opens=java.base/sun.net.www.protocol.jrt=ALL-UNNAMED
+--add-opens=java.naming/javax.naming.spi=ALL-UNNAMED
+--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+--add-opens=jdk.management/com.sun.management.internal=ALL-UNNAMED
+--add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED
+--add-exports=java.base/jdk.internal.vm.annotation=ALL-UNNAMED
+--add-opens=java.base/jdk.internal.vm.annotation=ALL-UNNAMED
+-javaagent:/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/lib/monitor/flashlight-agent.jar
+-Djava.awt.headless=true
+-Djdk.corba.allowOutputStreamSubclass=true
+-Djdk.tls.rejectClientInitiatedRenegotiation=true
+-Djavax.xml.accessExternalSchema=all
+-Djava.security.policy=/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/domains/domain1/config/server.policy
+-Djava.security.auth.login.config=/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/domains/domain1/config/login.conf
+-Dcom.sun.enterprise.security.httpsOutboundKeyAlias=s1as
+-Djavax.net.ssl.keyStore=/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/domains/domain1/config/keystore.jks
+-Djavax.net.ssl.trustStore=/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/domains/domain1/config/cacerts.jks
+-Djdbc.drivers=org.apache.derby.jdbc.ClientDriver
+-DANTLR_USE_DIRECT_CLASS_LOADING=true
+-Dcom.sun.enterprise.config.config_environment_factory_class=com.sun.enterprise.config.serverbeans.AppserverConfigEnvironmentFactory
+-Dorg.glassfish.additionalOSGiBundlesToStart=org.apache.felix.shell,org.apache.felix.gogo.runtime,org.apache.felix.gogo.shell,org.apache.felix.gogo.command,org.apache.felix.shell.remote,org.apache.felix.fileinstall
+-Dosgi.shell.telnet.port=6666
+-Dosgi.shell.telnet.maxconn=1
+-Dosgi.shell.telnet.ip=127.0.0.1
+-Dgosh.args=--nointeractive
+-Dfelix.fileinstall.dir=/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/modules/autostart/
+-Dfelix.fileinstall.poll=5000
+-Dfelix.fileinstall.log.level=2
+-Dfelix.fileinstall.bundles.new.start=true
+-Dfelix.fileinstall.bundles.startTransient=true
+-Dfelix.fileinstall.disableConfigSave=false
+-Dorg.glassfish.gmbal.no.multipleUpperBoundsException=true
+-Dcom.ctc.wstx.returnNullForDefaultNamespace=true
+-Djdk.attach.allowAttachSelf=true
+-Dcom.sun.aas.instanceRoot=/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/domains/domain1
+-Dcom.sun.aas.installRoot=/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish
+-Djava.library.path=/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/lib:/Users/mateusz/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/bin
+com.sun.enterprise.glassfish.bootstrap.GlassFishMain
+-upgrade
+false
+-domaindir
+/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/domains/domain1
+-read-stdin
+true
+-asadmin-args
+--host,,,localhost,,,--port,,,4848,,,--secure=false,,,--terse=false,,,--echo=false,,,--interactive=false,,,start-domain,,,--verbose=false,,,--watchdog=false,,,--debug=false,,,--domaindir,,,/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/domains,,,domain1
+-domainname
+domain1
+-instancename
+server
+-type
+DAS
+-verbose
+false
+-asadmin-classpath
+/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/lib/client/appserver-cli.jar
+-debug
+false
+-asadmin-classname
+com.sun.enterprise.admin.cli.AdminMain]]
+
+[2025-04-16T00:56:19.229069+02:00] [GF 7.0.22] [INFO] [] [com.sun.enterprise.server.logging.LogManagerService] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1744757779194] [levelValue: 800] [[
+  Using property file: /Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/domains/domain1/config/logging.properties]]
+
+[2025-04-16T00:56:19.245441+02:00] [GF 7.0.22] [INFO] [NCLS-LOGGING-00009] [com.sun.enterprise.server.logging.LogManagerService] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1744757779194] [levelValue: 800] [[
+  Running GlassFish Version: Eclipse GlassFish 7.0.22 (commit: f6f35caa4a508fee3e74ad0162b17e3733b8ee81)]]
+
+[2025-04-16T00:56:19.328771+02:00] [GF 7.0.22] [INFO] [] [org.glassfish.ha.store.spi.BackingStoreFactoryRegistry] [tid: _ThreadID=45 _ThreadName=RunLevelControllerThread-1744757779196] [levelValue: 800] [[
+  Registered org.glassfish.ha.store.adapter.cache.ShoalBackingStoreProxy for persistence-type = replicated in BackingStoreFactoryRegistry]]
+
+[2025-04-16T00:56:19.348185+02:00] [GF 7.0.22] [INFO] [NCLS-SECURITY-01115] [jakarta.enterprise.system.core.security] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1744757779194] [levelValue: 800] [[
+  Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2025-04-16T00:56:19.349066+02:00] [GF 7.0.22] [INFO] [NCLS-SECURITY-01115] [jakarta.enterprise.system.core.security] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1744757779194] [levelValue: 800] [[
+  Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2025-04-16T00:56:19.354687+02:00] [GF 7.0.22] [INFO] [NCLS-SECURITY-01115] [jakarta.enterprise.system.core.security] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1744757779194] [levelValue: 800] [[
+  Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.]]
+
+[2025-04-16T00:56:19.384368+02:00] [GF 7.0.22] [INFO] [SEC-SVCS-00100] [jakarta.enterprise.security.services] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1744757779194] [levelValue: 800] [[
+  Authorization Service has successfully initialized.]]
+
+[2025-04-16T00:56:19.421589+02:00] [GF 7.0.22] [SEVERE] [NCLS-CORE-00043] [jakarta.enterprise.system.core] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1744757779192] [levelValue: 1000] [[
+  Application previously deployed is not at its original location any more: file:/Users/mateusz/Desktop/events/target/info-events-service/]]
+
+[2025-04-16T00:56:19.425847+02:00] [GF 7.0.22] [INFO] [NCLS-CORE-00087] [jakarta.enterprise.system.core] [tid: _ThreadID=46 _ThreadName=RunLevelControllerThread-1744757779197] [levelValue: 800] [[
+  Grizzly Framework 4.0.2 started in: 26 ms - bound to [/0.0.0.0:8080]]]
+
+[2025-04-16T00:56:19.436645+02:00] [GF 7.0.22] [INFO] [NCLS-CORE-00087] [jakarta.enterprise.system.core] [tid: _ThreadID=46 _ThreadName=RunLevelControllerThread-1744757779197] [levelValue: 800] [[
+  Grizzly Framework 4.0.2 started in: 0 ms - bound to [/0.0.0.0:8181]]]
+
+[2025-04-16T00:56:19.439986+02:00] [GF 7.0.22] [INFO] [NCLS-CORE-00087] [jakarta.enterprise.system.core] [tid: _ThreadID=46 _ThreadName=RunLevelControllerThread-1744757779197] [levelValue: 800] [[
+  Grizzly Framework 4.0.2 started in: 0 ms - bound to [/0.0.0.0:4848]]]
+
+[2025-04-16T00:56:19.453516+02:00] [GF 7.0.22] [INFO] [NCLS-CORE-00087] [jakarta.enterprise.system.core] [tid: _ThreadID=45 _ThreadName=RunLevelControllerThread-1744757779196] [levelValue: 800] [[
+  Grizzly Framework 4.0.2 started in: 0 ms - bound to [/0.0.0.0:3700]]]
+
+[2025-04-16T00:56:19.453894+02:00] [GF 7.0.22] [INFO] [NCLS-CORE-00017] [jakarta.enterprise.system.core] [tid: _ThreadID=1 _ThreadName=main] [levelValue: 800] [[
+  Eclipse GlassFish 7.0.22 (commit: f6f35caa4a508fee3e74ad0162b17e3733b8ee81) startup time: Felix (1 180 ms), startup services (264 ms), total (1 444 ms)]]
+
+[2025-04-16T00:56:19.455465+02:00] [GF 7.0.22] [INFO] [NCLS-CORE-00018] [jakarta.enterprise.system.core] [tid: _ThreadID=1 _ThreadName=main] [levelValue: 800] [[
+  Total startup time including CLI: 1 936 ms]]
+
+[2025-04-16T00:56:19.521524+02:00] [GF 7.0.22] [INFO] [NCLS-CORE-00087] [jakarta.enterprise.system.core] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1744757779192] [levelValue: 800] [[
+  Grizzly Framework 4.0.2 started in: 0 ms - bound to [/0.0.0.0:7676]]]
+
+[2025-04-16T00:56:19.551819+02:00] [GF 7.0.22] [INFO] [] [jakarta.enterprise.logging.stdout] [tid: _ThreadID=38 _ThreadName=FelixStartLevel] [levelValue: 800] [[
+  /Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/domains/domain1/autodeploy/bundles does not exist, please create it.]]
+
+[2025-04-16T00:56:19.553517+02:00] [GF 7.0.22] [INFO] [] [jakarta.enterprise.logging.stdout] [tid: _ThreadID=38 _ThreadName=FelixStartLevel] [levelValue: 800] [[
+  Root path does not exist: /Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/domains/domain1/autodeploy/bundles]]
+
+[2025-04-16T00:56:19.577406+02:00] [GF 7.0.22] [INFO] [NCLS-JMX-00005] [jakarta.enterprise.system.jmx] [tid: _ThreadID=82 _ThreadName=Thread-13] [levelValue: 800] [[
+  JMXStartupService has started JMXConnector on JMXService URL service:jmx:rmi://localnet:8686/jndi/rmi://localnet:8686/jmxrmi]]
+
+[2025-04-16T00:56:20.565419+02:00] [GF 7.0.22] [INFO] [AS-WSMETROGLUE-10010] [jakarta.enterprise.webservices.metroglue] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Web service endpoint deployment events listener registered successfully.]]
+
+[2025-04-16T00:56:20.747047+02:00] [GF 7.0.22] [INFO] [NCLS-SECURITY-01002] [jakarta.enterprise.system.core.security] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Java security manager is disabled.]]
+
+[2025-04-16T00:56:20.747342+02:00] [GF 7.0.22] [INFO] [NCLS-SECURITY-01010] [jakarta.enterprise.system.core.security] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Entering Security Startup Service.]]
+
+[2025-04-16T00:56:20.748620+02:00] [GF 7.0.22] [INFO] [NCLS-SECURITY-01143] [jakarta.enterprise.system.core.security] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Loading policy provider org.glassfish.exousia.modules.locked.SimplePolicyProvider.]]
+
+[2025-04-16T00:56:20.762491+02:00] [GF 7.0.22] [INFO] [NCLS-SECURITY-01011] [jakarta.enterprise.system.core.security] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Security Service(s) started successfully.]]
+
+[2025-04-16T00:56:20.858788+02:00] [GF 7.0.22] [INFO] [AS-WEB-GLUE-00198] [jakarta.enterprise.web] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Created HTTP listener http-listener-1 on host/port 0.0.0.0:8080]]
+
+[2025-04-16T00:56:20.860461+02:00] [GF 7.0.22] [INFO] [AS-WEB-GLUE-00198] [jakarta.enterprise.web] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Created HTTP listener http-listener-2 on host/port 0.0.0.0:8181]]
+
+[2025-04-16T00:56:20.861027+02:00] [GF 7.0.22] [INFO] [AS-WEB-GLUE-00198] [jakarta.enterprise.web] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Created HTTP listener admin-listener on host/port 0.0.0.0:4848]]
+
+[2025-04-16T00:56:20.870209+02:00] [GF 7.0.22] [INFO] [AS-WEB-GLUE-00200] [jakarta.enterprise.web] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Created virtual server server]]
+
+[2025-04-16T00:56:20.871158+02:00] [GF 7.0.22] [INFO] [AS-WEB-GLUE-00200] [jakarta.enterprise.web] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Created virtual server __asadmin]]
+
+[2025-04-16T00:56:20.959644+02:00] [GF 7.0.22] [INFO] [AS-WEB-CORE-00306] [jakarta.enterprise.web.core] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Setting JAAS app name glassfish-web]]
+
+[2025-04-16T00:56:20.959862+02:00] [GF 7.0.22] [INFO] [AS-WEB-GLUE-00201] [jakarta.enterprise.web] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Virtual server server loaded default web module ]]
+
+[2025-04-16T00:56:21.307716+02:00] [GF 7.0.22] [INFO] [AS-WSJSR109IMPL-00018] [jakarta.enterprise.webservices] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Webservice Endpoint deployed EventsInfo
+ listening at address at http://localnet:8080/bialystok-info/EventsInfoService.]]
+
+[2025-04-16T00:56:21.308934+02:00] [GF 7.0.22] [INFO] [AS-WSMETROGLUE-10001] [jakarta.enterprise.webservices.metroglue] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Loading WS-TX Services. Please wait.]]
+
+[2025-04-16T00:56:21.504643+02:00] [GF 7.0.22] [INFO] [AS-WSJSR109IMPL-00018] [jakarta.enterprise.webservices] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Webservice Endpoint deployed ParticipantPortTypeImpl
+ listening at address at http://localnet:8080/__wstx-services/ParticipantPortType.]]
+
+[2025-04-16T00:56:21.504968+02:00] [GF 7.0.22] [INFO] [AS-WSJSR109IMPL-00018] [jakarta.enterprise.webservices] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Webservice Endpoint deployed CoordinatorPortTypeImpl
+ listening at address at http://localnet:8080/__wstx-services/CoordinatorPortType.]]
+
+[2025-04-16T00:56:21.505151+02:00] [GF 7.0.22] [INFO] [AS-WSJSR109IMPL-00018] [jakarta.enterprise.webservices] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Webservice Endpoint deployed CoordinatorPortTypePortImpl
+ listening at address at http://localnet:8080/__wstx-services/CoordinatorPortType11.]]
+
+[2025-04-16T00:56:21.505319+02:00] [GF 7.0.22] [INFO] [AS-WSJSR109IMPL-00018] [jakarta.enterprise.webservices] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Webservice Endpoint deployed RegistrationPortTypeImpl
+ listening at address at http://localnet:8080/__wstx-services/RegistrationPortTypeRPC.]]
+
+[2025-04-16T00:56:21.505489+02:00] [GF 7.0.22] [INFO] [AS-WSJSR109IMPL-00018] [jakarta.enterprise.webservices] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Webservice Endpoint deployed RegistrationPortTypeRPCPortImpl
+ listening at address at http://localnet:8080/__wstx-services/RegistrationPortTypeRPC11.]]
+
+[2025-04-16T00:56:21.505646+02:00] [GF 7.0.22] [INFO] [AS-WSJSR109IMPL-00018] [jakarta.enterprise.webservices] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Webservice Endpoint deployed ParticipantPortTypePortImpl
+ listening at address at http://localnet:8080/__wstx-services/ParticipantPortType11.]]
+
+[2025-04-16T00:56:21.505808+02:00] [GF 7.0.22] [INFO] [AS-WSJSR109IMPL-00018] [jakarta.enterprise.webservices] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Webservice Endpoint deployed RegistrationRequesterPortTypePortImpl
+ listening at address at http://localnet:8080/__wstx-services/RegistrationRequesterPortType11.]]
+
+[2025-04-16T00:56:21.505969+02:00] [GF 7.0.22] [INFO] [AS-WSJSR109IMPL-00018] [jakarta.enterprise.webservices] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Webservice Endpoint deployed RegistrationRequesterPortTypeImpl
+ listening at address at http://localnet:8080/__wstx-services/RegistrationRequesterPortType.]]
+
+[2025-04-16T00:56:21.506775+02:00] [GF 7.0.22] [INFO] [] [org.glassfish.web.loader.WebappClassLoader] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  close(), this:
+org.glassfish.web.loader.WebappClassLoader@736318f5[name=wstx-services], urls=[
+file:/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/domains/domain1/applications/wstx-services/WEB-INF/classes/
+file:/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/domains/domain1/generated/ejb/wstx-services//
+][delegate=true, context=wstx-services, status=RUNNING, antiJARLocking=false, securityManager=false, packageDefinitionSecurityEnabled=false, repositories=RepositoryManager[WEB-INF/classes/], notFound.size=0, pathTimestamps.size=0, resourceEntryCache.size=0]]]
+
+[2025-04-16T00:56:22.139593+02:00] [GF 7.0.22] [INFO] [AS-WEB-GLUE-00172] [jakarta.enterprise.web] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Loading application [wstx-services] at [/__wstx-services]]]
+
+[2025-04-16T00:56:22.140415+02:00] [GF 7.0.22] [INFO] [AS-WSMETROGLUE-10002] [jakarta.enterprise.webservices.metroglue] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  WS-TX Services successfully started.]]
+
+[2025-04-16T00:56:22.143459+02:00] [GF 7.0.22] [INFO] [] [org.glassfish.web.loader.WebappClassLoader] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  close(), this:
+org.glassfish.web.loader.WebappClassLoader@ab058e8[name=bialystok-info], urls=[
+file:/Users/mateusz/Desktop/RSI-PROJECT1/target/bialystok-info/WEB-INF/classes/
+file:/Users/mateusz/Desktop/RSI-PROJECT1/target/bialystok-info/WEB-INF/lib/commons-logging-1.2.jar
+file:/Users/mateusz/Desktop/RSI-PROJECT1/target/bialystok-info/WEB-INF/lib/commons-csv-1.9.0.jar
+file:/Users/mateusz/Desktop/RSI-PROJECT1/target/bialystok-info/WEB-INF/lib/slf4j-api-1.7.36.jar
+file:/Users/mateusz/Desktop/RSI-PROJECT1/target/bialystok-info/WEB-INF/lib/fontbox-2.0.27.jar
+file:/Users/mateusz/Desktop/RSI-PROJECT1/target/bialystok-info/WEB-INF/lib/slf4j-api-2.0.7.jar
+file:/Users/mateusz/Desktop/RSI-PROJECT1/target/bialystok-info/WEB-INF/lib/jakarta.activation-api-2.1.0.jar
+file:/Users/mateusz/Desktop/RSI-PROJECT1/target/bialystok-info/WEB-INF/lib/jsoup-1.15.1.jar
+file:/Users/mateusz/Desktop/RSI-PROJECT1/target/bialystok-info/WEB-INF/lib/pdfbox-2.0.27.jar
+file:/Users/mateusz/Desktop/RSI-PROJECT1/target/bialystok-info/WEB-INF/lib/slf4j-simple-2.0.7.jar
+file:/Users/mateusz/Desktop/RSI-PROJECT1/target/bialystok-info/WEB-INF/lib/boxable-1.7.0.jar
+file:/Users/mateusz/Desktop/RSI-PROJECT1/target/bialystok-info/WEB-INF/lib/jakarta.xml.bind-api-4.0.0.jar
+file:/Users/mateusz/Desktop/RSI-PROJECT1/glassfish7/glassfish/domains/domain1/generated/ejb/bialystok-info/
+][delegate=true, context=bialystok-info, status=RUNNING, antiJARLocking=false, securityManager=false, packageDefinitionSecurityEnabled=false, repositories=RepositoryManager[WEB-INF/classes/], notFound.size=42, pathTimestamps.size=17, resourceEntryCache.size=11]]]
+
+[2025-04-16T00:56:22.240377+02:00] [GF 7.0.22] [INFO] [AS-WEB-GLUE-00172] [jakarta.enterprise.web] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  Loading application [bialystok-info] at [/bialystok-info]]]
+
+[2025-04-16T00:56:22.296556+02:00] [GF 7.0.22] [INFO] [] [jakarta.enterprise.system.core] [tid: _ThreadID=74 _ThreadName=admin-listener(4)] [levelValue: 800] [[
+  bialystok-info was successfully deployed in 2 147 milliseconds.]]
+
+[2025-04-16T00:56:22.624645+02:00] [GF 7.0.22] [WARNING] [] [org.glassfish.grizzly.config.SSLConfigurator] [tid: _ThreadID=64 _ThreadName=http-listener-2(1)] [levelValue: 900] [[
+  WEB0307: All SSL cipher suites disabled for network-listener http-listener-2, using SSL implementation specific defaults]]
+
+[2025-04-16T00:58:18.770115+02:00] [GF 7.0.22] [WARNING] [] [org.apache.pdfbox.pdmodel.PDPageContentStream] [tid: _ThreadID=67 _ThreadName=http-listener-2(4)] [levelValue: 900] [[
+  You are overwriting an existing content, you should use the append mode]]
+
