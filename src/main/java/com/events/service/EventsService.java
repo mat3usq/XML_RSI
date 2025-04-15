@@ -1,6 +1,7 @@
 package com.events.service;
 
 import com.events.model.Event;
+import com.events.model.EventType;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
@@ -65,5 +66,11 @@ public interface EventsService {
             operationName = "generateEventsReport"
     )
     @XmlMimeType("application/pdf")
-    byte[] generateEventsReportAsPdf(String date);
+    byte[] generateEventsReport(String date, boolean byWeek);
+
+    @WebMethod(
+            action = "https://events.org/events/getEventsReport",
+            operationName = "findAllEventsTypes"
+    )
+    List<String> findAllEventsTypes();
 }

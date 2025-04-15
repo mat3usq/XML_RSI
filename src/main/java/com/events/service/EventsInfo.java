@@ -16,7 +16,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Year;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.WeekFields;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,11 +37,21 @@ public class EventsInfo implements EventsService {
     private final List<Event> events = new ArrayList<>();
 
     public EventsInfo() {
-        events.add(new Event("Koncert Coldplay", EventType.CONCERT, LocalDateTime.of(2024, 6, 20, 20, 0), "Koncert na Stadionie Narodowym w Warszawie"));
-        events.add(new Event("Premiera filmu", EventType.CINEMA, LocalDateTime.of(2024, 5, 15, 18, 30), "Premiera najnowszego filmu Christophera Nolana"));
-        events.add(new Event("Wystawa sztuki", EventType.EXHIBITION, LocalDateTime.of(2024, 7, 10, 10, 0), "Wystawa współczesnej sztuki polskiej"));
-        events.add(new Event("Spektakl teatralny", EventType.THEATER, LocalDateTime.of(2024, 6, 5, 19, 0), "Hamlet w Teatrze Narodowym"));
-        events.add(new Event("Warsztaty programowania", EventType.WORKSHOP, LocalDateTime.of(2024, 5, 25, 9, 0), "Warsztaty z Java i Spring Boot"));
+        events.add(new Event("Coldplay Concert", EventType.CONCERT, LocalDateTime.of(2024, 6, 20, 20, 0), "Concert at the National Stadium in Warsaw"));
+        events.add(new Event("Music Festival", EventType.FESTIVAL, LocalDateTime.of(2024, 6, 21, 10, 0), "Annual music festival in the park"));
+        events.add(new Event("Art Exhibition", EventType.EXHIBITION, LocalDateTime.of(2024, 6, 22, 12, 0), "Exhibition of contemporary Polish art"));
+        events.add(new Event("Theatrical Performance", EventType.THEATER, LocalDateTime.of(2024, 6, 23, 19, 0), "Hamlet at the National Theater"));
+        events.add(new Event("Soccer Match", EventType.SPORT, LocalDateTime.of(2024, 6, 24, 15, 0), "Friendly match between local teams"));
+        events.add(new Event("Programming Workshop", EventType.WORKSHOP, LocalDateTime.of(2024, 6, 25, 9, 0), "Workshop on Java and Spring Boot"));
+        events.add(new Event("Tech Conference", EventType.CONFERENCE, LocalDateTime.of(2024, 6, 26, 10, 0), "Annual tech conference with keynote speakers"));
+        events.add(new Event("Book Fair", EventType.FAIR, LocalDateTime.of(2024, 6, 27, 11, 0), "Annual book fair with author signings"));
+        events.add(new Event("Food Festival", EventType.GASTRONOMY, LocalDateTime.of(2024, 6, 28, 12, 0), "Festival celebrating local cuisine"));
+        events.add(new Event("Historical Tour", EventType.HISTORY, LocalDateTime.of(2024, 6, 29, 10, 0), "Guided tour of historical sites"));
+        events.add(new Event("Poetry Reading", EventType.LITERARY, LocalDateTime.of(2024, 6, 30, 18, 0), "Evening of poetry readings by local authors"));
+        events.add(new Event("Children's Play", EventType.FOR_CHILDREN, LocalDateTime.of(2024, 7, 1, 11, 0), "Interactive play for children"));
+        events.add(new Event("Movie Night", EventType.CINEMA, LocalDateTime.of(2024, 7, 2, 20, 0), "Outdoor movie screening in the park"));
+        events.add(new Event("Community Cleanup", EventType.COMMUNITY, LocalDateTime.of(2024, 7, 3, 9, 0), "Community cleanup event at the local park"));
+        events.add(new Event("Educational Seminar", EventType.EDUCATION, LocalDateTime.of(2024, 7, 4, 14, 0), "Seminar on educational trends and practices"));
     }
 
     @Override
@@ -123,59 +133,81 @@ public class EventsInfo implements EventsService {
     }
 
     @Override
-    public byte[] generateEventsReportAsPdf(String date) {
-        List<Event> eventsForDate = findEventsByDate(date);
+    public byte[] generateEventsReport(String date, boolean byWeek) {
+        List<Event> eventsForDate;
+
+        if (date == null || date.isEmpty())
+            eventsForDate = findAllEvents();
+        else if (byWeek) {
+            LocalDate localDate = LocalDate.parse(date);
+            int week = localDate.get(WeekFields.ISO.weekOfWeekBasedYear());
+            int year = localDate.getYear();
+            eventsForDate = findEventsByWeek(week, year);
+        } else
+            eventsForDate = findEventsByDate(date);
+
         try (PDDocument document = new PDDocument()) {
             PDPage page = new PDPage();
             document.addPage(page);
 
             PDPageContentStream contentStream = null;
-            float currentY = 700;
+            float currentY = 750;
             boolean firstPage = true;
 
             try {
+                if (firstPage) {
+                    contentStream = new PDPageContentStream(document, page);
+                    contentStream.setFont(PDType1Font.HELVETICA_BOLD, 24);
+                    contentStream.beginText();
+                    contentStream.newLineAtOffset(100, 750);
+                    contentStream.showText("Events Report");
+                    contentStream.endText();
+
+                    contentStream.beginText();
+                    contentStream.newLineAtOffset(100, 720);
+                    contentStream.setFont(PDType1Font.HELVETICA, 12);
+                    contentStream.showText("Report Date: " + LocalDate.now());
+                    contentStream.endText();
+
+                    currentY = 700;
+                }
+
+                contentStream = new PDPageContentStream(document, page);
+                contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
+                contentStream.beginText();
+                contentStream.newLineAtOffset(50, currentY);
+                contentStream.showText("Event Name | Type | Date and Time");
+                contentStream.endText();
+
+                contentStream.setFont(PDType1Font.HELVETICA, 10);
+                contentStream.beginText();
+                contentStream.newLineAtOffset(50, currentY - 20);
+
                 for (Event event : eventsForDate) {
                     if (currentY < 50) {
-                        if (contentStream != null) {
-                            contentStream.endText();
-                            contentStream.close();
-                        }
+                        contentStream.endText();
+                        contentStream.close();
+
                         page = new PDPage();
                         document.addPage(page);
                         contentStream = new PDPageContentStream(document, page);
-                        contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
+                        contentStream.setFont(PDType1Font.HELVETICA, 10);
                         contentStream.beginText();
-                        contentStream.newLineAtOffset(50, 700);
-                        currentY = 700;
-                        firstPage = false;
-                    }
-
-                    if (contentStream == null) {
-                        contentStream = new PDPageContentStream(document, page);
-                        contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
-                        contentStream.beginText();
-                        contentStream.newLineAtOffset(50, currentY);
-                        if (firstPage) {
-                            contentStream.showText("Events Report for " + date);
-                            contentStream.newLineAtOffset(0, -20);
-                            contentStream.showText("Total events: " + eventsForDate.size());
-                            currentY -= 50;
-                        }
+                        contentStream.newLineAtOffset(50, 750);
+                        currentY = 750;
                     }
 
                     contentStream.showText(String.format(
-                            "Event: %s | Type: %s | Time: %s",
+                            "• %s | %s | %s",
                             event.getName(),
                             event.getType(),
-                            event.getDateTime().toLocalTime()
+                            event.getDateTime().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"))
                     ));
                     contentStream.newLineAtOffset(0, -15);
                     currentY -= 15;
                 }
 
-                if (contentStream != null) {
-                    contentStream.endText();
-                }
+                contentStream.endText();
             } finally {
                 if (contentStream != null) {
                     contentStream.close();
@@ -189,5 +221,12 @@ public class EventsInfo implements EventsService {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public List<String> findAllEventsTypes() {
+        return Arrays.stream(EventType.values())
+                .map(Enum::name)
+                .collect(Collectors.toList());
     }
 }
