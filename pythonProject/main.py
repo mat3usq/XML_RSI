@@ -8,6 +8,7 @@ from datetime import datetime
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+
 class EventsClient:
     def __init__(self, root):
         self.root = root
@@ -21,7 +22,7 @@ class EventsClient:
         session = Session()
         session.verify = False
         self.client = Client(
-            wsdl="https://192.168.55.104:8181/bialystok-info/EventsInfoService?wsdl",
+            wsdl="https://192.168.55.110:8181/bialystok-info/EventsInfoService?wsdl",
             transport=Transport(session=session))
         self.name_var = tk.StringVar()
         self.type_var = tk.StringVar()
@@ -116,27 +117,38 @@ class EventsClient:
             main_frame.pack(fill=tk.BOTH, expand=True)
             info_frame = ttk.Frame(main_frame)
             info_frame.pack(fill=tk.X, pady=5)
+
+            label_font = 'Arial 12 bold'
+            value_font = 'Arial 14'
+
             labels = [
                 ("ID:", event.id),
                 ("Name:", event.name),
                 ("Type:", event.type),
                 ("Date:", datetime.strptime(event.dateTime, "%Y-%m-%dT%H:%M:%S").strftime("%Y-%m-%d %H:%M"))
             ]
+
             for row, (label, value) in enumerate(labels):
-                ttk.Label(info_frame, text=label, font='Arial 10 bold').grid(row=row, column=0, sticky='e', padx=5,
-                                                                             pady=2)
-                ttk.Label(info_frame, text=value).grid(row=row, column=1, sticky='w', padx=5, pady=2)
+                ttk.Label(info_frame, text=label, font=label_font).grid(row=row, column=0, sticky='e', padx=5, pady=2)
+                ttk.Label(info_frame, text=value, font=value_font).grid(row=row, column=1, sticky='w', padx=5, pady=2)
+
             desc_frame = ttk.LabelFrame(main_frame, text="Description", padding=10)
             desc_frame.pack(fill=tk.BOTH, expand=True, pady=10)
             text_scroll = ttk.Scrollbar(desc_frame)
             text_scroll.pack(side=tk.RIGHT, fill=tk.Y)
-            desc_text = tk.Text(desc_frame, wrap=tk.WORD, height=8,
+
+            desc_text = tk.Text(desc_frame,
+                                wrap=tk.WORD,
+                                height=8,
                                 yscrollcommand=text_scroll.set,
-                                padx=5, pady=5)
+                                padx=5,
+                                pady=5,
+                                font='Arial 13')
             desc_text.insert(tk.END, event.description)
             desc_text.config(state=tk.DISABLED)
             desc_text.pack(fill=tk.BOTH, expand=True)
             text_scroll.config(command=desc_text.yview)
+
             button_frame = ttk.Frame(main_frame)
             button_frame.pack(pady=10)
             ttk.Button(button_frame,
@@ -333,6 +345,7 @@ class EventsClient:
                 self.show_error("Failed to update event.")
         except Exception as e:
             self.show_error(f"Error updating event: {str(e)}")
+
 
 if __name__ == "__main__":
     root = tk.Tk()

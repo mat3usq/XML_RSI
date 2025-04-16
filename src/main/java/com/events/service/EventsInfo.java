@@ -10,18 +10,18 @@ import jakarta.xml.ws.soap.MTOM;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
+import java.awt.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.WeekFields;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @MTOM
@@ -134,89 +134,21 @@ public class EventsInfo implements EventsService {
 
     @Override
     public byte[] generateEventsReport(String date, boolean byWeek) {
-        List<Event> eventsForDate;
+        List<Event> events;
 
-        if (date == null || date.isEmpty())
-            eventsForDate = findAllEvents();
-        else if (byWeek) {
+        if (date == null || date.isEmpty()) {
+            events = findAllEvents();
+        } else if (byWeek) {
             LocalDate localDate = LocalDate.parse(date);
-            int week = localDate.get(WeekFields.ISO.weekOfWeekBasedYear());
+            int weekNumber = localDate.get(WeekFields.ISO.weekOfWeekBasedYear());
             int year = localDate.getYear();
-            eventsForDate = findEventsByWeek(week, year);
-        } else
-            eventsForDate = findEventsByDate(date);
+            events = findEventsByWeek(weekNumber, year);
+        } else {
+            events = findEventsByDate(date);
+        }
 
-        try (PDDocument document = new PDDocument()) {
-            PDPage page = new PDPage();
-            document.addPage(page);
-
-            PDPageContentStream contentStream = null;
-            float currentY = 750;
-            boolean firstPage = true;
-
-            try {
-                if (firstPage) {
-                    contentStream = new PDPageContentStream(document, page);
-                    contentStream.setFont(PDType1Font.HELVETICA_BOLD, 24);
-                    contentStream.beginText();
-                    contentStream.newLineAtOffset(100, 750);
-                    contentStream.showText("Events Report");
-                    contentStream.endText();
-
-                    contentStream.beginText();
-                    contentStream.newLineAtOffset(100, 720);
-                    contentStream.setFont(PDType1Font.HELVETICA, 12);
-                    contentStream.showText("Report Date: " + LocalDate.now());
-                    contentStream.endText();
-
-                    currentY = 700;
-                }
-
-                contentStream = new PDPageContentStream(document, page);
-                contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
-                contentStream.beginText();
-                contentStream.newLineAtOffset(50, currentY);
-                contentStream.showText("Event Name | Type | Date and Time");
-                contentStream.endText();
-
-                contentStream.setFont(PDType1Font.HELVETICA, 10);
-                contentStream.beginText();
-                contentStream.newLineAtOffset(50, currentY - 20);
-
-                for (Event event : eventsForDate) {
-                    if (currentY < 50) {
-                        contentStream.endText();
-                        contentStream.close();
-
-                        page = new PDPage();
-                        document.addPage(page);
-                        contentStream = new PDPageContentStream(document, page);
-                        contentStream.setFont(PDType1Font.HELVETICA, 10);
-                        contentStream.beginText();
-                        contentStream.newLineAtOffset(50, 750);
-                        currentY = 750;
-                    }
-
-                    contentStream.showText(String.format(
-                            "• %s | %s | %s",
-                            event.getName(),
-                            event.getType(),
-                            event.getDateTime().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"))
-                    ));
-                    contentStream.newLineAtOffset(0, -15);
-                    currentY -= 15;
-                }
-
-                contentStream.endText();
-            } finally {
-                if (contentStream != null) {
-                    contentStream.close();
-                }
-            }
-
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            document.save(outputStream);
-            return outputStream.toByteArray();
+        try {
+            return new EventsReportPdfGenerator().generate(events);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
