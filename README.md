@@ -51,12 +51,7 @@ Zawiera:
 ✅ Implementacja `SOAP Handlers`  
 ✅ Prezentacja przesyłanych komunikatów SOAP na żywo – np. za pomocą **SOAP UI** lub **tcpmonitor**  
 ✅ Prezentacja działania systemu na dwóch komputerach lub z użyciem **maszyny wirtualnej**
+🔐 Wykorzystanie szyfrowania SSL/TLS – udostępnienie WS przez HTTPS
+🌐 Stworzenie klienta w **innym języku niż Java** (np. Python, C#, JS itd.)
 
 ---
-
-## 🏅 Punkty dodatkowe (dla oceny 5.0)
-
-Aby uzyskać ocenę 5.0 należy zrealizować **dwa z poniższych punktów dodatkowych**:
-
-1. 🔐 Wykorzystanie szyfrowania SSL/TLS – udostępnienie WS przez HTTPS
-2. 🌐 Stworzenie klienta w **innym języku niż Java** (np. Python, C#, JS itd.)
