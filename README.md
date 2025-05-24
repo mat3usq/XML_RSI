@@ -51,7 +51,7 @@ Zawiera:
 ✅ Implementacja `SOAP Handlers`  
 ✅ Prezentacja przesyłanych komunikatów SOAP na żywo – np. za pomocą **SOAP UI** lub **tcpmonitor**  
 ✅ Prezentacja działania systemu na dwóch komputerach lub z użyciem **maszyny wirtualnej**
-🔐 Wykorzystanie szyfrowania SSL/TLS – udostępnienie WS przez HTTPS
-🌐 Stworzenie klienta w **innym języku niż Java** (np. Python, C#, JS itd.)
+✅ Wykorzystanie szyfrowania SSL/TLS – udostępnienie WS przez HTTPS
+✅ Stworzenie klienta w **innym języku niż Java** (Python)
 
 ---
